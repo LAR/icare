@@ -18,7 +18,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.5'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4'
+gem 'webpacker', '6.0.0.rc.6'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.9', require: false

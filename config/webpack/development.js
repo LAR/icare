@@ -1,32 +1,39 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-const environment = require('./environment')
+const { merge } = require('@rails/webpacker')
+const webpackConfig = require('./base')
+
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
-environment.plugins.append(
-  'StyleLintPlugin',
-  new StyleLintPlugin({
-    emitWarning: true,
-    files: '/app/**/*.(s(c|a)ss|css)'
-  })
-)
-
-environment.loaders.insert('standard-loader', {
-  loader: 'standard-loader',
-  test: /\.js$/,
-  exclude: /vendor\/.+\.js$/,
-  options: {
-    globals: [
-      '$',
-      'ClientSideValidations',
-      'google',
-      'Handlebars',
-      'HandlebarsTemplates',
-      'I18n',
-      'InfoBox',
-      'initGoogleMaps'
+const customConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /vendor\/.+\.js$/,
+        loader: 'standard-loader',
+        options: {
+          error: true,
+          globals: [
+            '$',
+            'ClientSideValidations',
+            'google',
+            'Handlebars',
+            'HandlebarsTemplates',
+            'I18n',
+            'InfoBox',
+            'initGoogleMaps'
+          ]
+        }
+      }
     ]
-  }
-}, { after: 'babel'} )
+  },
+  plugins: [
+    new StyleLintPlugin({
+      emitWarning: true,
+      files: '/app/**/*.(s(c|a)ss|css)'
+    })
+  ]
+}
 
-module.exports = environment.toWebpackConfig()
+module.exports = merge(webpackConfig, customConfig)
