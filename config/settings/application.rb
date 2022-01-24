@@ -7,17 +7,17 @@
 # SET SENSITIVE DATA ONLY IN 'local.rb'
 
 SimpleConfig.for :application do
-  set :app_name, 'icare'
+  set :app_name, 'LAR icare'
   set :repository_url, 'https://github.com/diowa/icare'
 
-  set :advertising, true
-  set :demo_mode, true
+  set :advertising, false
+  set :demo_mode, false
   set :base_url, 'localhost:3000'
   set :single_process_mode, true
 
-  set :currency, '.00 €'
+  set :currency, '.00 £'
   set :fuel_consumption, 0.12
-  set :fuel_currency, '€'
+  set :fuel_currency, '£'
 
   set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
 
@@ -39,8 +39,9 @@ SimpleConfig.for :application do
   end
 
   group :map do
-    # defaults to Italy
-    set :center, [41.87194, 12.567379999999957]
+    # defaults to Riseholme
+    set :center, [53.268457, -0.529620]
+    # [41.87194, 12.567379999999957]
     set :zoom, 8
   end
 
@@ -60,16 +61,16 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :from, '"Icare" <no-reply@i.care>'
-    set :host, 'localhost'
+    set :from, 'kumo@lincoln.ac.uk'
+    set :host, 'lincoln.ac.uk'
 
     group :smtp_settings do
-      set :address, 'localhost'
-      set :port, 587
-      set :authentication, :plain
-      set :domain, 'localhost'
+      set :address, 'mailslot.lincoln.ac.uk'
+      set :port, 25
+      #set :authentication, :plain
+      set :domain, 'lincoln.ac.uk'
 
-      set :user_name, 'test'
+      set :user_name, 'mhanheide'
       set :password, 'test'
     end
   end

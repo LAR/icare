@@ -22,7 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  url: postgis://postgres:postgres@localhost/icare_development
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, 'postgis') %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

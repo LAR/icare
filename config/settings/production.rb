@@ -23,14 +23,14 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :from, '"Icare" <no-reply@i.care>'
-    set :host, 'heroku.com'
+    set :from, '"Marc Hanheide" <mhanheide@lincoln.ac.uk>'
+    set :host, 'lincoln.ac.uk'
 
     group :smtp_settings do
-      set :address, 'smtp.sendgrid.net'
-      set :port, 587
+      set :address, 'mailslot.lincoln.ac.uk'
+      set :port, 25
       set :authentication, :plain
-      set :domain, 'heroku.com'
+      set :domain, 'lincoln.ac.uk'
 
       set :user_name, ENV['SENDGRID_USERNAME']
       set :password, ENV['SENDGRID_PASSWORD']

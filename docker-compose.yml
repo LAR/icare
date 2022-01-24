@@ -42,7 +42,7 @@ services:
       - icare
     ports:
       - 3080:80
-      - 3443:443
+      - 8080:443
     restart: on-failure
     volumes:
       - assets:/nginx/public:ro

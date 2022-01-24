@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-alpine
+FROM ruby:3.0.3-alpine
 
 RUN apk add --no-cache --update \
   build-base \
@@ -62,7 +62,7 @@ COPY --chown=icare:icare lib ./lib
 COPY --chown=icare:icare public ./public
 COPY --chown=icare:icare spec ./spec
 COPY --chown=icare:icare .browserslistrc .
-COPY --chown=icare:icare .postcssrc.yml .
+#COPY --chown=icare:icare .postcssrc.yml .
 COPY --chown=icare:icare babel.config.js .
 COPY --chown=icare:icare config.ru .
 COPY --chown=icare:icare postcss.config.js .

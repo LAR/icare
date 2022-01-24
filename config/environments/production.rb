@@ -36,6 +36,7 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
+  
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
   config.log_level = :info
@@ -45,6 +46,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  config.action_controller.allow_forgery_protection = false
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -65,6 +67,7 @@ Rails.application.configure do
 
   # Log disallowed deprecations.
   config.active_support.disallowed_deprecation = :log
+
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
@@ -115,10 +118,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              APP_CONFIG.mailer.smtp_settings.address,
     port:                 APP_CONFIG.mailer.smtp_settings.port,
-    authentication:       APP_CONFIG.mailer.smtp_settings.authentication,
-    user_name:            APP_CONFIG.mailer.smtp_settings.user_name,
-    password:             APP_CONFIG.mailer.smtp_settings.password,
+    #authentication:       APP_CONFIG.mailer.smtp_settings.authentication,
+    #user_name:            APP_CONFIG.mailer.smtp_settings.user_name,
+    #password:             APP_CONFIG.mailer.smtp_settings.password,
     domain:               APP_CONFIG.mailer.smtp_settings.domain,
-    enable_starttls_auto: true
+    enable_starttls_auto: false
   }
 end
