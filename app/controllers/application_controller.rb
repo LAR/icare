@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include RouteLocalizer
 
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
   before_action :authenticate_user!
   before_action :check_banned, except: [:banned], if: :user_signed_in?
