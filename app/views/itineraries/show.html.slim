@@ -9,7 +9,14 @@
         span.fas.fa-pencil-alt<>
         = t('helpers.titles.edit', model: Itinerary.model_name.human)
     - else
-      = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary me-2' do
+      = link_to "https://teams.microsoft.com/l/chat/0/0?users=#{@itinerary.user_email}", target: '_blank', class: 'btn btn-primary me-2' do
+        span.fas.fa-comment<>
+        = t('.contact', user: @itinerary.user_first_name)
+      /.btn-group
+        a href="https://teams.microsoft.com/l/chat/0/0?users=@itinerary.user_email" target="_blank"
+          button.btn.btn-primary Contact @itinerary.user_first_name on Teams
+      
+      /= link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary me-2' do
         span.fas.fa-comment<>
         = t('.contact', user: @itinerary.user_first_name)
       /

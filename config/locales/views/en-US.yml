@@ -258,7 +258,7 @@ en-US:
     index:
       title: Search itineraries
     show:
-      contact: "Contact %{user}"
+      contact: "Contact %{user} on Teams"
       send_reference: Send a reference
       report_itinerary: "Report this itinerary"
       login_to_contact: "Log in to contact this user"

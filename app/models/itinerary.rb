@@ -17,6 +17,7 @@ class Itinerary < ApplicationRecord
   belongs_to :user
   delegate :name, to: :user, prefix: true
   delegate :first_name, to: :user, prefix: true
+  delegate :email, to: :user, prefix: true
 
   validates :description, length: { maximum: 1000 }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true

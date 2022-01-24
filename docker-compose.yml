@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./docker/icare/Dockerfile
       args:
-        RAILS_ENV: production
+        RAILS_ENV: development
     container_name: icare
     depends_on:
       - db
